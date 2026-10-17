@@ -3,3 +3,5 @@ preview-*.png
 verify.cjs
 serve.cjs
 test-results/
+
+library-room.png

@@ -34,4 +34,4 @@ Keyboard-accessible menus and native dialogs, visible focus, touch targets, a te
 
 ## Art and audio
 
-Room and character art is drawn directly on canvas; cover art is AI generated. Sound effects are synthesized locally. Fonts use Google Fonts with local serif and sans-serif fallbacks; gameplay remains functional offline.
+The playable library backdrop and cover are AI generated. The backdrop prompt asks for a painterly magical library with perimeter shelves, moonlit windows, golden lanterns, pink vines, and a spacious empty wooden floor, with no text or characters. `library-room.webp` is the optimized project asset. Interactive objects and the start.ng explorer are drawn on canvas; Morrow is an original animated SVG librarian who appears beside conversational dialogue. The first room teaches one action at a time, marks the next object, and provides explicit action buttons. Tapping an object walks the player there and opens its interaction automatically. Sound effects are synthesized locally. Fonts use Google Fonts with local serif and sans-serif fallbacks; gameplay remains functional offline.
