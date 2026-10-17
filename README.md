@@ -6,6 +6,8 @@ A cozy, complete five-room vocabulary adventure for start.ng. Explore a magical 
 
 Open `index.html` directly, or serve this folder with any static server. No build, installation, backend, or API keys are needed. Use arrows/WASD, E to inspect, J for the journal, H for hints, and P/Escape to pause. Touch arrow controls and tap-to-walk are available. Every puzzle has three hint levels and unlimited attempts.
 
+The opening screen is a live, full-window library scene with the player’s start.ng character, swaying lanterns, drifting sparks, and floating pages. In-game movement eases between tiles; tap-to-walk follows a valid route around shelves and gaps. Reduced-motion settings freeze the ambient animation and remove movement interpolation. Animation stops drawing gameplay while a dialog is open and suspends updates in background tabs.
+
 ## Contents
 
 - Five handcrafted rooms, each with two vocabulary challenges and one observation/route challenge.
