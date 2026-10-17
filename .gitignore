@@ -1,0 +1,5 @@
+cover-original.png
+preview-*.png
+verify.cjs
+serve.cjs
+test-results/
