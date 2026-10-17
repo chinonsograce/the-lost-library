@@ -31,7 +31,7 @@ startng.json declares levels completed and unique words discovered. Replays do n
 
 ## Art, audio, accessibility
 
-The library backdrop and cover were generated using the built-in image generation tool. The backdrop prompt requested a painterly magical library, perimeter shelves, moonlit windows, golden lanterns, pink vines, and spacious wooden floor, without text or characters. library-room.webp is the optimized asset. Morrow is an original animated SVG guide. The player is drawn on canvas.
+The library backdrop and cover were generated using the built-in image generation tool. The backdrop prompt requested a painterly magical library, perimeter shelves, moonlit windows, golden lanterns, pink vines, and spacious wooden floor, without text or characters. library-room.webp is the optimized asset. Morrow uses an AI-generated transparent portrait derived from the LinkedIn launch artwork: the silver-haired lady with gold glasses, a teal embroidered jacket, pink lapels, and a welcoming wave. The built-in image-generation edit prompt preserved those appearance details and isolated her on a transparent background. The optimized asset is morrow-lady.webp; an SVG wrapper provides gentle motion and blinking, disabled for reduced motion. The player is drawn on canvas.
 
 An original melody, soft chord pads, effects, and applause are synthesized locally using Web Audio. Music starts on Play/Continue unless muted. Enable music is also available. Browser autoplay rules require a gesture. Sound preference is stored separately as lost-library-audio-v1. Hidden tabs stop audio; returning resumes with a tap fallback when needed.
 
