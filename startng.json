@@ -1,1 +1,1 @@
-{"leaderboard":{"stats":[{"key":"rooms","label":"Rooms restored","order":"highest"},{"key":"words","label":"Unique words found","order":"highest"}]}}
+{"leaderboard":{"stats":[{"key":"levels","label":"Levels completed","order":"highest"},{"key":"words","label":"Unique words discovered","order":"highest"}]}}

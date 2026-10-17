@@ -18,10 +18,11 @@ const Soundscape=(()=>{
  function disable(){persist('off');active=false;sound=false;stopClock();clearVoices();audio?.suspend();controls();}
  function toggle(){if(active)disable();else enable();}
  function reward(){if(!active)return;[72,76,79,84].forEach((n,i)=>tone(n,audio.currentTime+i*.14,1.45,.22,effects));}
+ function applause(){if(!active)return;const now=audio.currentTime;for(let i=0;i<7;i++){const duration=.11,buffer=audio.createBuffer(1,Math.ceil(audio.sampleRate*duration),audio.sampleRate),data=buffer.getChannelData(0);for(let j=0;j<data.length;j++)data[j]=(Math.random()*2-1)*Math.exp(-j/data.length*6);const source=audio.createBufferSource(),filter=audio.createBiquadFilter(),gain=audio.createGain();filter.type='bandpass';filter.frequency.value=1600+i*90;filter.Q.value=.65;gain.gain.value=.13;source.buffer=buffer;source.connect(filter);filter.connect(gain);gain.connect(effects);voices.add(source);source.onended=()=>{voices.delete(source);source.disconnect();filter.disconnect();gain.disconnect();};source.start(now+i*.09+(i%2)*.025);}}
  function effect(kind){if(!active)return;const now=audio.currentTime;if(kind==='step')tone(43,now,.075,.07,effects,'triangle');else if(kind==='page'){tone(84,now,.3,.12,effects);tone(88,now+.12,.55,.1,effects);}else if(kind==='open'){tone(60,now,.32,.13,effects,'triangle');tone(67,now+.08,.5,.11,effects);}else if(kind==='lantern'){[76,79,83].forEach((n,i)=>tone(n,now+i*.12,.8,.15,effects));}}
  document.addEventListener('visibilitychange',()=>{if(document.hidden){stopClock();clearVoices();active=false;sound=false;audio?.suspend();controls();}else if(preference==='on')enable(false);});
  document.addEventListener('pointerdown',e=>{if(preference==='on'&&!active&&e.target.closest('#sound,#music-start')===null)enable(false);},{capture:true});
  ['play','continue'].forEach(id=>$(id).addEventListener('click',()=>{if(preference!=='off')enable();},{capture:true}));
  const musicButton=button('♫ Enable music',toggle);musicButton.id='music-start';document.querySelector('.home-actions').append(musicButton);const note=text('p','');note.id='audio-note';note.className='audio-note';document.querySelector('.home-actions').after(note);controls();
- return {toggle,reward,effect,enable,disable,get active(){return active;},get voiceCount(){return voices.size;},get analyser(){return analyser;}};
+ return {toggle,reward,applause,effect,enable,disable,get active(){return active;},get voiceCount(){return voices.size;},get analyser(){return analyser;}};
 })();

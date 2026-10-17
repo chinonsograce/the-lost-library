@@ -1,37 +1,44 @@
-# The Lost Library
+# The Lost Library — a word at a time
 
-A cozy, complete five-room vocabulary adventure for start.ng. Explore a magical library, act on words in the environment, recover five pages, and restore the Great Book.
+A complete letter-wheel vocabulary game for start.ng. Connect letters, discover words, read their meanings and example sentences, and restore a magical library. The current version replaces the earlier exploration gameplay with the word-building concept requested by the owner.
 
 ## Play
 
-Open `index.html` directly, or serve this folder with any static server. No build, installation, backend, or API keys are needed. Use arrows/WASD, E to inspect, J for the journal, H for hints, and P/Escape to pause. Touch arrow controls and tap-to-walk are available. Every puzzle has three hint levels and unlimited attempts.
+Open index.html directly or serve this folder using any static server. No build, installation, server, or API keys are needed. Pick Easy, Hard, or Very Hard, then Let’s play. There are four handcrafted levels per difficulty, 12 in total. Any level can be revisited; prior discoveries remain found. There is no timer, life count, paid hint, or penalty for trying.
 
-The opening screen is a live, full-window library scene with the player’s start.ng character, swaying lanterns, drifting sparks, and floating pages. In-game movement eases between tiles; tap-to-walk follows a valid route around shelves and gaps. Reduced-motion settings freeze the ambient animation and remove movement interpolation. Animation stops drawing gameplay while a dialog is open and suspends updates in background tabs.
+Tap letters and press Find word, or swipe across letters and lift your finger. Each tile can be used once per word; wheels with repeated letters have separate tiles. Undo, Clear, Shuffle, free progressive hints, and Show me are available. The first puzzle guides C → A → T. Keyboard users can focus and activate letter buttons, or type letters and use Enter/Backspace.
 
-## Contents
+## Learning and celebrations
 
-- Five handcrafted rooms, each with two vocabulary challenges and one observation/route challenge.
-- Eight unique words with definitions and scene-specific examples. The final chamber revisits two words in new contexts.
-- The Broken Passage supports repairing the middle bridge or taking either outer walkway.
-- Local browser saving, continue, pause, optional gentle sound effects, and a completion screen with a protected replay action.
-- A start.ng character renderer supporting the documented body, clothing colours, skin, hairstyles, hats, and accessories. Outside start.ng, a clearly labelled local preview character is used.
-- `startng.json` declares progress-based leaderboard columns: `rooms` and `words`. Duplicate interactions never accumulate rewards. start.ng keeps the best run.
-- `cover.png`: 1600 × 1000, under 2 MB. Cover generated with the built-in image generation tool from a prompt for a cozy magical library, floating pages, an explorer, the title “The Lost Library”, and the specified navy/cream/teal/gold/pink palette.
+vocabulary.js contains an authored word collection. Each accepted word has a simple definition and an original example sentence. Required words fill the page, and other buildable entries are bonus discoveries. This is a curated collection, not an exhaustive English dictionary: feedback states when a word is outside the collection rather than claiming it is not English.
 
-## Integration
+Rare discovery is an editorial collection badge, not a measured frequency ranking. Specialist and literary entries were checked against Cambridge Dictionary:
 
-The hidden `https://start.ng/connect` frame implements whoami, score saving, and leaderboard queries. Replies validate both origin and source window, and correlate request IDs. Identity refreshes on tab focus and visibility changes. Guests can sign in through start.ng. The game does not ask for passwords or handle account credentials. Integration only responds on a published `*.start.ng` domain; character fetching and shared score saving require live verification after approval.
+- Lumen: https://dictionary.cambridge.org/us/dictionary/english/lumen
+- Isle: https://dictionary.cambridge.org/us/dictionary/english/isle
+- Thane: https://dictionary.cambridge.org/dictionary/english/thane
+- Tor: https://dictionary.cambridge.org/dictionary/english/tor
 
-Progress is stored only in the current browser under `lost-library-v1`, shared by people using that browser. It is not an account or cross-device save. Sign-in enables the shared best-run leaderboard, not cloud adventure saves.
+A discovery card shows meaning and sentence without blocking the next word. Every word enters the journal once. Celebrations use gentle chimes, locally synthesized applause, and optional sparkles. Completing a level unlocks an optional two-choice sentence exercise with retry feedback. Sentence practice is tracked once per level. GLOW lights the scenery, STAR reveals stars, and PLANT brings flowers back.
 
-## Publish
+## Saving and identity
 
-The built files are in the repository root. Call `POST https://api.start.ng/games/check` with `{"repo_url":"https://github.com/chinonsograce/the-lost-library","name":"the-lost-library"}`. Fix reported errors, then send the same body to `/games/publish`. Open its returned approval URL and approve once. Later pushes update the game automatically. Requirements: https://start.ng/docs.md.
+The new adventure saves in this browser under lost-library-words-v2. Existing lost-library-v1 exploration saves are preserved separately and are not converted into word-game scores. Saving is local to this browser, not an account or cross-device save. Loaded word data is validated against known puzzles and their letter counts; duplicate rewards and journal entries are prevented.
 
-## Accessibility
+The documented start.ng connect iframe supplies player or guest identity, face picture, character style, leaderboard reads, and best-run score submissions. Both message origin and source window are checked and request IDs are correlated. Identity refreshes on focus and visibility changes. The original renderer retains supported body, skin, clothing, hair, hat, and accessory details. Guests can play and sign in. No passwords or account credentials are collected.
 
-Keyboard-accessible menus and native dialogs, visible focus, touch targets, a text list of nearby objects, readable puzzle descriptions, no timed challenges, no flashing or mandatory sound, and reduced-motion CSS. The canvas map is supplemented by object buttons, but full nonvisual route navigation is not implemented.
+startng.json declares levels completed and unique words discovered. Replays do not add duplicate progress. Live authentication and score saving require the published start.ng origin.
 
-## Art and audio
+## Art, audio, accessibility
 
-The playable library backdrop and cover are AI generated. The backdrop prompt asks for a painterly magical library with perimeter shelves, moonlit windows, golden lanterns, pink vines, and a spacious empty wooden floor, with no text or characters. `library-room.webp` is the optimized project asset. Interactive objects and the start.ng explorer are drawn on canvas; Morrow is an original animated SVG librarian who appears beside conversational dialogue. The first room teaches one action at a time, marks the next object, and provides explicit action buttons. Tapping an object walks the player there and opens its interaction automatically. An original continuous melody and soft chord pads, page tones, footsteps, lantern sparkles, and reward chimes are synthesized locally. Music starts on Begin/Continue unless the player explicitly muted it; Enable music also starts it from the welcome screen. Browser autoplay rules require an initial gesture. Sound preference is stored separately as `lost-library-audio-v1`; muted players stay muted. Audio stops in hidden tabs and resumes when returning, with a tap fallback if the browser requires one. Fonts use Google Fonts with local serif and sans-serif fallbacks; gameplay remains functional offline.
+The library backdrop and cover were generated using the built-in image generation tool. The backdrop prompt requested a painterly magical library, perimeter shelves, moonlit windows, golden lanterns, pink vines, and spacious wooden floor, without text or characters. library-room.webp is the optimized asset. Morrow is an original animated SVG guide. The player is drawn on canvas.
+
+An original melody, soft chord pads, effects, and applause are synthesized locally using Web Audio. Music starts on Play/Continue unless muted. Enable music is also available. Browser autoplay rules require a gesture. Sound preference is stored separately as lost-library-audio-v1. Hidden tabs stop audio; returning resumes with a tap fallback when needed.
+
+Controls have accessible names and focus styles. Puzzle rows expose word lengths and found words. Feedback uses live text. Touch and keyboard input are supported, and reduced-motion settings disable decorative movement. Fonts have local fallbacks; gameplay works without network access after assets are loaded.
+
+## Publishing
+
+Ready-to-play index.html and assets are committed in the repository root. Use POST https://api.start.ng/games/check with {"repo_url":"https://github.com/chinonsograce/the-lost-library","name":"the-lost-library"}, fix reported errors, and send the same body to /games/publish. The game is already approved, so successful publications update it directly. Requirements: https://start.ng/docs.md.
+
+Unlinked earlier exploration scripts remain in the repository for reference and rollback. The new page loads only vocabulary.js, word-art.js, wordgame.js, and audio.js.
