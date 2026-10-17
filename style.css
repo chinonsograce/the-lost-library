@@ -23,3 +23,5 @@ dialog{width:min(720px,calc(100% - 28px));padding:30px 32px;border:1px solid #df
 .word-magic{position:fixed;z-index:20;left:50%;top:18%;transform:translateX(-50%);color:#fff4df;text-shadow:0 0 20px #e8bb63;background:#18243aeb;border:1px solid #e8bb63;border-radius:30px;padding:10px 25px;font:27px Georgia;pointer-events:none;animation:word-rise 2.8s ease-out forwards}.room-restored #world{filter:brightness(1.1) saturate(1.15)}@keyframes word-rise{0%{opacity:0;translate:0 20px}20%,70%{opacity:1}100%{opacity:0;translate:0 -40px}}@media(prefers-reduced-motion:reduce){.word-magic{animation:none}}
 
 .word-magic{white-space:nowrap;max-width:92vw;text-align:center;font-size:22px}@media(max-width:680px){.word-magic{font-size:16px;padding:9px 15px}}
+
+.home .audio-note{font-size:10px;color:#f3d59e;margin:0 0 8px}.home #music-start{border-color:#e8bb6377}.home #music-start[aria-pressed=true]{border-color:#93c4b3;color:#b8e2cf}@media(max-width:680px){.home .audio-note{font-size:8px}.home #music-start{padding:8px 11px;min-height:36px}}
