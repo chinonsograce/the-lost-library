@@ -41,4 +41,8 @@ Controls have accessible names and focus styles. Puzzle rows expose word lengths
 
 Ready-to-play index.html and assets are committed in the repository root. Use POST https://api.start.ng/games/check with {"repo_url":"https://github.com/chinonsograce/the-lost-library","name":"the-lost-library"}, fix reported errors, and send the same body to /games/publish. The game is already approved, so successful publications update it directly. Requirements: https://start.ng/docs.md.
 
-Unlinked earlier exploration scripts remain in the repository for reference and rollback. The new page loads only vocabulary.js, word-art.js, wordgame.js, and audio.js.
+Unlinked earlier exploration scripts remain in the repository for reference and rollback. The new page loads vocabulary.js, word-art.js, wordgame.js, audio.js, and the library-3d.js module.
+
+## Three.js integration
+
+The game bundles Three.js r180 (MIT license in vendor/three-LICENSE.txt) and uses a real WebGLRenderer, PerspectiveCamera, scene graph, geometry, lighting and raycasting in library-3d.js. The interactive library is visible on the welcome screen and beside gameplay; Visit the library opens a larger view. Drag or arrow keys rotate the scene. Tapping the open Great Book gives a clue. Word discoveries brighten its lanterns, completed levels add floating pages, and the 3D explorer is rebuilt from start.ng character style. It preserves documented body, colours, hair, hats and accessories. Reduced motion removes ambient movement; hidden tabs stop rendering. Without WebGL the existing 2D character and fully playable word game remain available. Modules require HTTP(S) hosting for the 3D view.
